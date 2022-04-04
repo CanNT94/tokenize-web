@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+}
+
+.selector-interval {
+  display: flex;
+  background-color: #14151AFF;
+  border-radius: 4px;
+
+  &-item {
+    padding: 10px;
+    color: #ececec;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &--selected {
+      color: rgb(240, 185, 11);
+    }
+  }
+}

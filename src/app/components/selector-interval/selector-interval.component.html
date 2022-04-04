@@ -1,0 +1,40 @@
+<div class="selector-interval">
+  <div
+    *ngFor="let option of displayedSelectors"
+    [class.selector-interval-item--selected]="selectedItem === option.value"
+    class="selector-interval-item"
+    (click)="selectSelector(option)"
+  >
+    {{ option.label }}
+  </div>
+  <div
+    #button
+    class="selector-interval-item"
+    (click)="handlePopup()"
+    role="button"
+  >
+    <span class="selector-interval-item--selected" *ngIf="displayIcon()">{{ selectedItem }}</span>
+    <mat-icon
+      *ngIf="showPopup else dropDown"
+      aria-hidden="false"
+      aria-label="icon"
+    >arrow_drop_up</mat-icon
+    >
+    <ng-template #dropDown>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="icon"
+      >arrow_drop_down</mat-icon
+      >
+    </ng-template>
+
+  </div>
+  <ng-template #menu>
+    <tokenize-menu
+      [displayedOptions]='displayedSelectors'
+      (onSelect)='onChooseOption($event)'
+      (saveSelector)='handleSave($event)'
+    ></tokenize-menu>
+  </ng-template>
+</div>
+

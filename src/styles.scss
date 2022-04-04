@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/cdk/overlay-prebuilt.css';
+@import 'material-icons/iconfont/material-icons.css';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.cdk-overlay-container {
+  z-index: 100000;
+
+.backdrop-loading.cdk-overlay-backdrop-showing {
+  background: #000000;
+  opacity: 0.7;
+}
+
+.backdrop-app-loading {
+&.cdk-overlay-backdrop-showing {
+   background: #fff;
+ }
+
+&.cdk-overlay-backdrop {
+   opacity: 1;
+ }
+}
+}

@@ -1,0 +1,38 @@
+<div class="menu-container">
+  <div class="menu-container-header">
+    <div class="menu-container-header-text">Select interval</div>
+    <button
+      class="button"
+      *ngIf="isEdit else editButton"
+      (click)="handleSave()"
+    >
+      Save
+    </button>
+    <ng-template #editButton>
+      <button
+        class="button"
+        (click)="handleEdit()"
+      >
+        Edit
+      </button>
+    </ng-template>
+  </div>
+  <div class="menu-container-option">
+    <div
+      *ngFor="let selectorOption of selectorOptions"
+      class="menu-container-option-item-wrapper"
+      [class.menu-container-option-item-wrapper--selected]="isOptionSelected(selectorOption)"
+      (click)="changeMode(selectorOption)"
+    >
+      <div class="menu-container-option-item">{{selectorOption.label}}</div>
+      <div class="menu-container-option-icon" *ngIf="isEdit">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M20.5 7.42L9.41 18.5 8 17.09l-5-5 1.41-1.42 5 5L19.08 6l1.42 1.42z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
